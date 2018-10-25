@@ -25,6 +25,20 @@ $db = new DB($dsn, $db_user, $db_pass);
 $menuKey = 'Apartments';
 include 'inc/menu.inc.php';
 
+if($cmd === 'House-Add')
+{
+    $House = new House();
+    $House->title =  $_POST['title'];
+    $House->description =  $_POST['description'];
+    $House->price =  $_POST['price'];
+    $House->currency =  $_POST['currency'];
+    $House->totalArea =  $_POST['totalArea'];
+
+    $House->totalRooms =  $_POST['totalRooms'];
+    $House->totalFloors =  $_POST['totalFloors'];
+    echo $House->Add();
+}
+
 if($cmd === 'Apartment-Add')
 {
     $Apartment = new Apartment();
